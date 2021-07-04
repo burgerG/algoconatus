@@ -1,10 +1,7 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div id="app" class="grid grid-cols-2">
+    <Sidebar />
+    <router-view />
   </div>
 </template>
 
@@ -30,3 +27,13 @@
   color: #42b983;
 }
 </style>
+
+<script>
+import Sidebar from "./components/ui/Sidebar.vue";
+
+export default {
+  components: {
+    Sidebar,
+  },
+};
+</script>

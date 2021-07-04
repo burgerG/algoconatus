@@ -45,7 +45,11 @@
       "parser": "babel-eslint"
     },
     "rules": {
-      "linebreak-style": 0
+      "linebreak-style": 0,
+      "quotes": [
+        0,
+        "double"
+      ]
     },
     "overrides": [
       {
