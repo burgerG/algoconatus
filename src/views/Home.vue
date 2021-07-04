@@ -1,35 +1,21 @@
 <template>
   <div class="p-10 bg-blue-100">
-    <div class="bg-blue-300 rounded text-white text-center font-extrabold">
-      <h1>Categoria</h1>
-      <div
-        class="
-          grid grid-cols-3
-          gap-4
-          p-4
-          bg-blue-500
-          rounded-sm
-          text-white text
-          center
-        "
-      >
-        <div class="bg-blue-200 rounded text-white">Calc2</div>
-        <div class="bg-blue-200 rounded text-white">Calc2</div>
-        <div class="bg-blue-200 rounded text-white">Calc3</div>
-        <div class="bg-blue-200 rounded text-white">Calc4</div>
-      </div>
-      <HelloWorld msg="Welcome to Your Vue.js App" style="display: none" />
+    <div
+      class="bg-gray-300 p-8 rounded text-white text-center font-extrabold flex flex-col space-y-4">
+      <CategoryCard color="red" title="test1" calcsList="abacate" />
+      <CategoryCard color="green" title="test2" calcsList="eh" />
+      <CategoryCard color="blue" title="test3" calcsList="ruim" />
     </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from "../components/HelloWorld.vue";
+import CategoryCard from "../components/CategoryCard.vue";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld,
+    CategoryCard,
   },
 };
 </script>
