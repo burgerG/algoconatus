@@ -2,7 +2,7 @@
   <div :class="[`bg-${color}-400`, 'text-white', 'rounded']">
       <h1>{{ title }}</h1>
       <div :class="[`bg-${color}-200`]">
-        <p>{{ content }}</p>
+        <slot></slot>
       </div>
   </div>
 </template>
@@ -10,7 +10,7 @@
 <script>
 export default {
   name: 'Card',
-  props: ['color', 'title', 'content'],
+  props: ['color', 'title'],
 };
 </script>
 
