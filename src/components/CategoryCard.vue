@@ -1,6 +1,6 @@
 <template>
         <Card :color="color" :title="title">
-          testing slot
+          <slot></slot>
         </Card>
 </template>
 

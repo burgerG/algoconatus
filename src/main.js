@@ -5,7 +5,7 @@ import 'tailwindcss/tailwind.css';
 
 Vue.config.productionTip = false;
 
-new Vue({
+window.app = new Vue({
   router,
   render: (h) => h(App),
 }).$mount('#app');
