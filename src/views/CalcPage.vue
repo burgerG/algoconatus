@@ -9,6 +9,7 @@
             v-for="(input, name) in inputValues"
             :key="name"
             v-model.number="inputValues[name]"
+            :placeholder="name"
         >
         <p>{{ calcResult(inputValues) }}</p>
     </div>

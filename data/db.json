@@ -39,7 +39,7 @@
                 "Tempo": null,
                 "Taxa": null
             },
-            "calcFunction": "return this.inputValues.Capital + this.inputValues.Tempo + this.inputValues.Taxa"
+            "calcFunction": "return this.inputValues.Capital * (((this.inputValues.Taxa / 100) + 1) ** this.inputValues.Tempo)"
         }
     ]
 }
