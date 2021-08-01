@@ -40,6 +40,13 @@
                 "Taxa": null
             },
             "calcFunction": "return this.inputValues.Capital * (((this.inputValues.Taxa / 100) + 1) ** this.inputValues.Tempo)"
+        },
+        {
+            "id": 101,
+            "inputs": {
+                "Valor": null
+            },
+            "calcFunction": "let resultado = 1; if( typeof this.inputValues.Valor === 'number') { for(let i = this.inputValues.Valor; i > 1; i--) { resultado *= i; } return resultado; } else { return 0 }"
         }
     ]
 }

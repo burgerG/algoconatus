@@ -32,12 +32,10 @@ export default {
             .then(data => {
                 this.calcFunction = data.calcFunction
                 this.inputValues = data.inputs
-                console.log(this.calcFunction, this.inputValues);
             })
     },
     computed: {
         calcResult: function() {
-            // return this.inputValues.reduce((acc, cur) => { return acc+cur }, 0)
             return new Function('inputValues', this.calcFunction);
         }
         
