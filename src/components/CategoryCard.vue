@@ -1,6 +1,8 @@
 <template>
         <Card :color="color" :title="title">
-          <slot></slot>
+          <div class="flex flex-col p-4">
+            <slot></slot>
+          </div>
         </Card>
 </template>
 

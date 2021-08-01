@@ -3,7 +3,17 @@
         { 
             "id": 1,
             "title": "Math",
-            "color": "blue"
+            "color": "blue",
+            "content": [
+                {
+                    "id": 100,
+                    "title": "Juros compostos"
+                },
+                {
+                    "id": 101,
+                    "title": "Fatoração"
+                }
+            ]
         },
         { 
             "id": 2,
@@ -19,6 +29,17 @@
             "id": 4,
             "title": "Enginnering",
             "color": "green"
+        }
+    ],
+    "calcFunctions": [
+        {
+            "id": 100,
+            "inputs": {
+                "Capital": null,
+                "Tempo": null,
+                "Taxa": null
+            },
+            "calcFunction": "return this.inputValues.Capital + this.inputValues.Tempo + this.inputValues.Taxa"
         }
     ]
 }
