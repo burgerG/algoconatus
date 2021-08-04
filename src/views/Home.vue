@@ -1,20 +1,30 @@
 <template>
-  <div class="p-10 bg-blue-100">
-    <div
-      class="bg-gray-300 p-8 rounded text-white text-center font-extrabold flex flex-col space-y-4">
+  <div class="p-4 sm:p-8">
+    <div class="rounded text-white text-center flex flex-col gap-4">
       <CategoryCard
         v-for="category in categories"
+        :id="`category-card-${category.title.toLowerCase().replace(' ', '-')}`"
         :color="category.color"
         :key="category.id"
         :title="category.title"
       >
-        <router-link 
-          class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded m-1"
+        <router-link
+          :id="`${category.title
+            .toLowerCase()
+            .replace(' ', '-')}-calc-button-${calc.title
+            .toLowerCase()
+            .replace(' ', '-')}`"
+          :class="[
+            `bg-${category.color}-500`,
+            `hover:bg-${category.color}-600`,
+            `text-${category.color}-100`,
+            'p-4 rounded',
+          ]"
           v-for="calc in category.content"
           :key="calc.id"
-          :to="{name: 'CalcPage', params: {calcId: calc.id}}"
-          >
-            {{calc.title}}
+          :to="{ name: 'CalcPage', params: { calcId: calc.id } }"
+        >
+          {{ calc.title }}
         </router-link>
       </CategoryCard>
     </div>
@@ -22,6 +32,7 @@
 </template>
 
 <script>
+import setup from "../../setup.json";
 import CategoryCard from "../components/CategoryCard.vue";
 
 export default {
@@ -35,9 +46,9 @@ export default {
     CategoryCard,
   },
   mounted() {
-    fetch('http://localhost:3000/categories')
-      .then(res => res.json())
-      .then(data => this.categories = data)
+    fetch(`http://${setup.ipv4}:${setup.ports.db}/categories`)
+      .then((res) => res.json())
+      .then((data) => (this.categories = data));
   },
 };
 </script>

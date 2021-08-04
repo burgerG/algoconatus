@@ -1,14 +1,31 @@
 <template>
-  <div class="container bg-red-100">
-    <h1>SIDEBAR</h1>
-    <router-link to="/">Home</router-link><br />
-    <router-link to="/about">About</router-link>
+  <div class="sm:flex flex-col gap-2 pt-8 pl-8">
+    <router-link
+      v-for="(link, index) in links"
+      :key="index"
+      :to="{ name: link }"
+      class="
+        cursor-pointer
+        bg-gray-50
+        border border-transparent
+        hover:border-gray-300
+        rounded-r
+        p-2
+        text-center text-gray-400
+      "
+      >Home</router-link
+    >
   </div>
 </template>
 
 <script>
 export default {
   name: "Sidebar",
+  data() {
+    return {
+      links: ["Home", "Home", "Home", "Home", "Home"],
+    };
+  },
 };
 </script>
 

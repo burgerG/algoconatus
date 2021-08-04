@@ -1,52 +1,104 @@
 {
     "categories": [
-        { 
+        {
             "id": 1,
             "title": "Math",
             "color": "blue",
             "content": [
                 {
                     "id": 100,
-                    "title": "Juros compostos"
+                    "title": "Compound interest"
                 },
                 {
                     "id": 101,
-                    "title": "Fatoração"
+                    "title": "Factorial"
                 }
             ]
         },
-        { 
+        {
             "id": 2,
-            "title": "Chemistry",
-            "color": "red"
-        },
-        { 
-            "id": 3,
             "title": "Physics",
-            "color": "purple"
+            "color": "purple",
+            "content": [
+                {
+                    "id": 120,
+                    "title": "Force"
+                }
+            ]
         },
-        { 
+        {
+            "id": 3,
+            "title": "Chemistry",
+            "color": "red",
+            "content": [
+                {
+                    "id": 140,
+                    "title": "Density"
+                }
+            ]
+        },
+        {
             "id": 4,
             "title": "Enginnering",
-            "color": "green"
+            "color": "yellow",
+            "content": [
+                {
+                    "id": 120,
+                    "title": "Force"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "title": "Computer Science",
+            "color": "green",
+            "content": [
+                {
+                    "id": 160,
+                    "title": "Decimal to Binary converter"
+                }
+            ]
         }
     ],
     "calcFunctions": [
         {
             "id": 100,
             "inputs": {
-                "Capital": null,
-                "Tempo": null,
-                "Taxa": null
+                "Capital": 0,
+                "Time": 0,
+                "Rate": 0
             },
-            "calcFunction": "return this.inputValues.Capital * (((this.inputValues.Taxa / 100) + 1) ** this.inputValues.Tempo)"
+            "calcFunction": "return inputValues.Capital * (((inputValues.Rate / 100) + 1) ** inputValues.Time)"
         },
         {
             "id": 101,
             "inputs": {
-                "Valor": null
+                "Value": 0
             },
-            "calcFunction": "let resultado = 1; if( typeof this.inputValues.Valor === 'number') { for(let i = this.inputValues.Valor; i > 1; i--) { resultado *= i; } return resultado; } else { return 0 }"
+            "calcFunction": "let result = 1; if( typeof inputValues.Value === 'number') { for(let i = inputValues.Value; i > 1; i--) { result *= i; } return result; } else { return 0 }"
+        },
+        {
+            "id": 120,
+            "inputs": {
+                "Mass": 0,
+                "Acceleration": 0
+            },
+            "calcFunction": "return inputValues.Mass * inputValues.Acceleration"
+        },
+        {
+            "id": 140,
+            "inputs": {
+                "Mass": 0,
+                "Volume": 0
+            },
+            "calcFunction": "return inputValues.Mass / inputValues.Volume"
+        },
+        {
+            "id": 160,
+            "inputs": {
+                "Input": 0
+            },
+            "calcFunction": "if(inputValues.Input > 0) {return inputValues.Input.toString(2)} else {return 'The input value must be greater than 0'}"
         }
     ]
 }
