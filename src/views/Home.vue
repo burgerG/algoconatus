@@ -1,33 +1,28 @@
 <template>
-  <div class="p-4 sm:p-8">
-    <div class="rounded text-white text-center flex flex-col gap-4">
-      <CategoryCard
-        v-for="category in categories"
-        :id="`category-card-${category.title.toLowerCase().replace(' ', '-')}`"
-        :color="category.color"
-        :key="category.id"
-        :title="category.title"
+  <div class="rounded text-white text-center flex flex-col gap-4">
+    <CategoryCard
+      v-for="category in categories"
+      :id="`category-card-${category.title}` | formatId"
+      :color="category.color"
+      :key="category.id"
+      :title="category.title"
+    >
+      <router-link
+        :id="`${category.title}-calc-button-${calc.title}` | formatId"
+        :class="[
+          `bg-${category.color}-500`,
+          `hover:bg-${category.color}-600 transition duration-300`,
+          `text-${category.color}-100`,
+          'p-4 rounded',
+        ]"
+        @click.native="scrollToTop"
+        v-for="calc in category.content"
+        :key="calc.id"
+        :to="{ name: 'CalcPage', params: { calcId: calc.id } }"
       >
-        <router-link
-          :id="`${category.title
-            .toLowerCase()
-            .replace(' ', '-')}-calc-button-${calc.title
-            .toLowerCase()
-            .replace(' ', '-')}`"
-          :class="[
-            `bg-${category.color}-500`,
-            `hover:bg-${category.color}-600`,
-            `text-${category.color}-100`,
-            'p-4 rounded',
-          ]"
-          v-for="calc in category.content"
-          :key="calc.id"
-          :to="{ name: 'CalcPage', params: { calcId: calc.id } }"
-        >
-          {{ calc.title }}
-        </router-link>
-      </CategoryCard>
-    </div>
+        {{ calc.title }}
+      </router-link>
+    </CategoryCard>
   </div>
 </template>
 
@@ -49,6 +44,16 @@ export default {
     fetch(`http://${setup.ipv4}:${setup.ports.db}/categories`)
       .then((res) => res.json())
       .then((data) => (this.categories = data));
+  },
+  methods: {
+    scrollToTop() {
+      window.scrollTo(0, 0);
+    },
+  },
+  filters: {
+    formatId: function (value) {
+      return value.toLowerCase().replace(" ", "-");
+    },
   },
 };
 </script>

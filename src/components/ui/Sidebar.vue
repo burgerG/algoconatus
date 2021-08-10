@@ -7,13 +7,18 @@
       class="
         cursor-pointer
         bg-gray-50
-        border border-transparent
-        hover:border-gray-300
+        border border-gray-200
+        hover:border-transparent
+        hover:bg-white
+        transition
+        duration-300
         rounded-r
         p-2
+        py-3
         text-center text-gray-400
+        leading-5
       "
-      >Home</router-link
+      >{{ link }}</router-link
     >
   </div>
 </template>
@@ -23,7 +28,7 @@ export default {
   name: "Sidebar",
   data() {
     return {
-      links: ["Home", "Home", "Home", "Home", "Home"],
+      links: ["Home", "Home", "Home", "Home", "Home", "Home"],
     };
   },
 };

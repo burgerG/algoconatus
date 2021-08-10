@@ -1,11 +1,11 @@
 <template>
   <div
     id="app"
-    class="grid grid-cols-8 h-full bg-gray-100"
+    class="grid grid-cols-8 h-full bg-gray-50 select-none"
     style="min-width: 220px"
   >
     <Sidebar class="hidden sm:flex col-span-2" />
-    <router-view class="sm:col-span-6 col-span-full" />
+    <router-view class="sm:col-span-6 col-span-full p-4 sm:p-8" />
   </div>
 </template>
 
@@ -18,3 +18,13 @@ export default {
   },
 };
 </script>
+
+<style>
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+</style>
