@@ -17,7 +17,10 @@
         ]"
         v-for="calc in category.content"
         :key="calc.id"
-        :to="{ name: 'CalcPage', params: { calcId: calc.id } }"
+        :to="{
+          name: 'CalcPage',
+          params: { calcId: calc.id, calcColor: category.color },
+        }"
       >
         {{ calc.title }}
       </router-link>

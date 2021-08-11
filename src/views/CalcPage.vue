@@ -18,14 +18,16 @@
       "
     >
       <!-- Parameters title -->
-      <span class="text-indigo-200 text-opacity-75 text-sm"> Parameters </span>
+      <span :class="`text-${calcColor}-200 text-opacity-75 text-sm`">
+        Parameters
+      </span>
       <!-- Parameters content -->
       <div>
         <!-- Individual parameter -->
         <div
           v-for="(parameter, name) in parameters"
           :key="name"
-          class="flex flex-row gap-2 bg-indigo-100 rounded p-1 text-indigo-300"
+          :class="`flex flex-row gap-2 bg-${calcColor}-100 rounded p-1 text-${calcColor}-300`"
           @click="selectInput('parameter-' + name)"
         >
           <label
@@ -37,11 +39,11 @@
             type="number"
             min="0"
             max="10"
-            class="
+            :class="`
               block
               appearance-none
               bg-white
-              border border-indigo-200
+              border border-${calcColor}-200
               rounded
               text-center text-sm
               leading-5
@@ -49,11 +51,10 @@
               duration-150
               ease-in-out
               focus:outline-none
-              focus:border-indigo-300
+              focus:border-${calcColor}-300
               focus:placeholder-gray-300
-              focus:ring-2 focus:ring-indigo-200
-              cursor-pointer
-            "
+              focus:ring-2 focus:ring-${calcColor}-200
+              cursor-pointer`"
             v-model="parameters[name]"
             :ref="'parameter-' + name"
             :name="'parameter-' + name"
@@ -70,28 +71,27 @@
           @click="selectInput('input-' + name)"
           type="number"
           min="0"
-          class="
+          :class="`
             block
             appearance-none
             bg-white
-            border border-indigo-200
+            border border-${calcColor}-200
             rounded
             w-full
             py-3
             px-4
-            text-indigo-300 text-right
+            text-${calcColor}-300 text-right
             leading-5
             transition
             duration-300
             ease-in-out
             focus:outline-none
-            focus:border-indigo-300
+            focus:border-${calcColor}-300
             focus:placeholder-gray-300
-            focus:ring-2 focus:ring-indigo-200
+            focus:ring-2 focus:ring-${calcColor}-200
             cursor-pointer
-            selection:bg-indigo-300
-            selection:text-indigo-50
-          "
+            selection:bg-${calcColor}-300
+            selection:text-${calcColor}-50`"
           :ref="'input-' + name"
           v-model.number="inputValues[name]"
           v-for="(input, name) in inputValues"
@@ -99,21 +99,22 @@
           :placeholder="name"
         />
       </div>
-      <hr class="appearance-none border-t-2 border-indigo-200 opacity-50" />
+      <hr
+        :class="`appearance-none border-t-2 border-${calcColor}-200 opacity-50`"
+      />
       <!-- Result -->
       <div
-        class="
+        :class="`
           block
           appearance-none
-          bg-indigo-100
-          border border-indigo-200
+          bg-${calcColor}-100
+          border border-${calcColor}-200
           rounded
           w-full
           p-4
-          text-indigo-300 text-right text-3xl
+          text-${calcColor}-300 text-right text-3xl
           font-medium
-          leading-10
-        "
+          leading-10`"
       >
         {{ handleResult }}
       </div>
@@ -143,20 +144,26 @@
 <script>
 import setup from "../../setup.json";
 export default {
+  props: {
+    calcId: {
+      type: Number,
+      required: true,
+    },
+    calcColor: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
-      id: null,
       calcFunction: null,
       inputValues: {},
       parameters: {},
     };
   },
   mounted() {
-    // gets the calculator ID from vue router
-    this.id = this.$route.params.calcId;
-
     // requests calc data from the server and assigns the required values to build the page
-    fetch(`http://${setup.ipv4}:${setup.ports.db}/calcFunctions/${this.id}`)
+    fetch(`http://${setup.ipv4}:${setup.ports.db}/calcFunctions/${this.calcId}`)
       .then((res) => res.json())
       .then((data) => {
         this.calcFunction = data.calcFunction;
@@ -165,9 +172,6 @@ export default {
       });
   },
   methods: {
-    jej(text) {
-      console.log(text);
-    },
     // selects a given inputRef
     selectInput(inputRef) {
       this.$refs[inputRef][0].select();
