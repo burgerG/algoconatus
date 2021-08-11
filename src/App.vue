@@ -1,7 +1,7 @@
 <template>
   <div
     id="app"
-    class="grid grid-cols-8 h-full bg-gray-50 select-none"
+    class="grid grid-cols-8 h-full dark:bg-blueGray-900 bg-gray-50 select-none"
     style="min-width: 220px"
   >
     <Sidebar class="hidden sm:flex col-span-2" />

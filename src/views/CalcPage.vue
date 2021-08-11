@@ -18,7 +18,9 @@
       "
     >
       <!-- Parameters title -->
-      <span :class="`text-${calcColor}-200 text-opacity-75 text-sm`">
+      <span
+        :class="`dark:text-${calcColor}-800 text-${calcColor}-200 text-opacity-75 text-sm`"
+      >
         Parameters
       </span>
       <!-- Parameters content -->
@@ -27,7 +29,7 @@
         <div
           v-for="(parameter, name) in parameters"
           :key="name"
-          :class="`flex flex-row gap-2 bg-${calcColor}-100 rounded p-1 text-${calcColor}-300`"
+          :class="`flex flex-row gap-2 dark:bg-${calcColor}-900 bg-${calcColor}-100 rounded p-1 dark:text-${calcColor}-600 text-${calcColor}-300`"
           @click="selectInput('parameter-' + name)"
         >
           <label
@@ -42,6 +44,7 @@
             :class="`
               block
               appearance-none
+              dark:bg-gray-800
               bg-white
               border border-${calcColor}-200
               rounded
@@ -54,7 +57,8 @@
               focus:border-${calcColor}-300
               focus:placeholder-gray-300
               focus:ring-2 focus:ring-${calcColor}-200
-              cursor-pointer`"
+              cursor-pointer selection:bg-${calcColor}-300
+            selection:text-${calcColor}-500`"
             v-model="parameters[name]"
             :ref="'parameter-' + name"
             :name="'parameter-' + name"
@@ -74,6 +78,7 @@
           :class="`
             block
             appearance-none
+            dark:bg-gray-800
             bg-white
             border border-${calcColor}-200
             rounded
@@ -91,7 +96,7 @@
             focus:ring-2 focus:ring-${calcColor}-200
             cursor-pointer
             selection:bg-${calcColor}-300
-            selection:text-${calcColor}-50`"
+            selection:text-${calcColor}-500`"
           :ref="'input-' + name"
           v-model.number="inputValues[name]"
           v-for="(input, name) in inputValues"
@@ -107,11 +112,14 @@
         :class="`
           block
           appearance-none
+          dark:bg-${calcColor}-900
           bg-${calcColor}-100
+          dark:border border-${calcColor}-500
           border border-${calcColor}-200
           rounded
           w-full
           p-4
+          truncate
           text-${calcColor}-300 text-right text-3xl
           font-medium
           leading-10`"

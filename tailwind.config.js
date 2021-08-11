@@ -5,7 +5,7 @@ const plugin = require('tailwindcss/plugin')
 
 module.exports = {
   purge: [],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
@@ -18,6 +18,7 @@ module.exports = {
         sky: colors.sky,
         fuchsia: colors.fuchsia,
         rose: colors.rose,
+        blueGray: colors.blueGray,
       }
     },
   },

@@ -6,13 +6,16 @@
       :to="{ name: link }"
       class="
         cursor-pointer
-        bg-gray-50
-        border border-gray-200
+        bg-transparent
+        border
+        dark:border-gray-800
+        border-gray-200
         hover:border-transparent
         hover:bg-white
+        dark:hover:bg-gray-900
         transition
         duration-300
-        rounded-r
+        rounded-sm
         p-2
         py-3
         text-center text-gray-400

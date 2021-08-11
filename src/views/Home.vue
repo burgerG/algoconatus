@@ -9,12 +9,7 @@
     >
       <router-link
         :id="`${category.title}-calc-button-${calc.title}` | formatId"
-        :class="[
-          `bg-${category.color}-500`,
-          `hover:bg-${category.color}-600 transition duration-300`,
-          `text-${category.color}-100`,
-          'p-4 rounded',
-        ]"
+        :class="`bg-${category.color}-500 hover:bg-${category.color}-600 transition duration-300 text-${category.color}-100 p-4 rounded`"
         v-for="calc in category.content"
         :key="calc.id"
         :to="{
