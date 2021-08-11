@@ -15,7 +15,6 @@
           `text-${category.color}-100`,
           'p-4 rounded',
         ]"
-        @click.native="scrollToTop"
         v-for="calc in category.content"
         :key="calc.id"
         :to="{ name: 'CalcPage', params: { calcId: calc.id } }"
@@ -44,11 +43,6 @@ export default {
     fetch(`http://${setup.ipv4}:${setup.ports.db}/categories`)
       .then((res) => res.json())
       .then((data) => (this.categories = data));
-  },
-  methods: {
-    scrollToTop() {
-      window.scrollTo(0, 0);
-    },
   },
   filters: {
     formatId: function (value) {
