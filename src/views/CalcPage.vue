@@ -89,8 +89,8 @@
             focus:placeholder-gray-300
             focus:ring-2 focus:ring-indigo-200
             cursor-pointer
-            selection:bg-teal-900
-            selection:text-teal-400
+            selection:bg-indigo-300
+            selection:text-indigo-50
           "
           :ref="'input-' + name"
           v-model.number="inputValues[name]"
@@ -194,15 +194,3 @@ export default {
   },
 };
 </script>
-
-<style>
-::-moz-selection {
-  color: white;
-  background: orange;
-}
-
-::selection {
-  color: white;
-  background: orange;
-}
-</style>

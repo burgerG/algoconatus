@@ -35,15 +35,9 @@ module.exports = {
     plugin(function selectionVariant({ addVariant, e }) {
       addVariant('selection', ({ modifySelectors, separator }) => {
         modifySelectors(({ className }) => {
-          // console.log(`.${e(`selection${separator}${className}`)} ::selection`);
-          return `.${e(`selection${separator}${className}`)} ::selection`;
+          return `.${e(`selection${separator}${className}`)}::selection`;
         })
       })
-      let string = 'TEM ESSA MERDA PRA ARRUMAR AINDA (descobrir como adicionar o selection)'
-      Array.from(string).forEach(char => {
-        console.log('\x1b[91m\x1b[107m%s\x1b[0m', string);
-
-      });
     })
   ],
 }
