@@ -5,7 +5,9 @@ import 'tailwindcss/tailwind.css';
 
 Vue.config.productionTip = false;
 
-window.app = new Vue({
+export const eventBus = new Vue();
+new Vue({
   router,
   render: (h) => h(App),
 }).$mount('#app');
+

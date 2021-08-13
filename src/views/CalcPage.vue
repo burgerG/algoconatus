@@ -150,6 +150,7 @@
 </template>
 
 <script>
+import { eventBus } from "../main";
 import setup from "../../setup.json";
 export default {
   props: {
@@ -168,6 +169,9 @@ export default {
       inputValues: {},
       parameters: {},
     };
+  },
+  created() {
+    eventBus.$emit("clearSearch");
   },
   mounted() {
     // requests calc data from the server and assigns the required values to build the page
